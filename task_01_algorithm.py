@@ -1,20 +1,38 @@
-int(user) = input('Please enter any one digit number: ')
-if int(user) == 7:
-  print('Hello!')
-elif user == 'John':
-  print('Hello John!')
-else:
-  print('There's no such name.")
+user = input('Please enter - any one-digit number or a name: ')
 
-print('Please enter 3 array elements: ')
+is_num = None
+
+try:
+    user = int(user)
+    is_num = True
+except ValueError:
+    is_num = False
+
+if is_num and user > 7:
+    print('Hello!')
+elif not is_num and user == 'John':
+    print('Hello John!')
+elif not is_num:
+    print("There's no such name.")
+
+
+print('Please enter numeric array elements one by one, or any text if done: ')
 alist = []
-for i in range(3):
-  x = input():
-  alist.append(x)
+
+while True:
+    x = input()
+    try:
+        float(x)
+    except:
+        print('only numeric items are accepted')
+        break
+    alist.append(x)
+
 
 print('Output array: ')
+
+
 for item in alist:
-  if int(item) %3 == 0:
-    print(item)
-    
+    if float(item) % 3 == 0:
+        print(item)
     
